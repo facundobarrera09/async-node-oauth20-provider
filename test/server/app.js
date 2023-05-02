@@ -71,6 +71,7 @@ server.post('/login', function(req, res, next) {
                     if (err) next(err);
                     else if (!valid) res.redirect(req.url);
                     else {
+                        console.log('user logged in')
                         req.session.user = user;
                         req.session.authorized = true;
                         res.redirect(backUrl);

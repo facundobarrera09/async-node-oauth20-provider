@@ -15,20 +15,20 @@ module.exports.fetchByCode = function(code, cb) {
     cb();
 };
 
-module.exports.getUserId = function(code) {
-    return code.userId;
+module.exports.getUserId = function(code, cb) {
+    cb(null, code.userId);
 };
 
-module.exports.getClientId = function(code) {
-    return code.clientId;
+module.exports.getClientId = function(code, cb) {
+    cb(null, code.clientId);
 };
 
-module.exports.getScope = function(code) {
-    return code.scope;
+module.exports.getScope = function(code, cb) {
+    cb(null, code.scope);
 };
 
-module.exports.checkTtl = function(code) {
-    return (code.ttl > new Date().getTime());
+module.exports.checkTTL = function(code, cb) {
+    cb(null, (code.ttl > new Date().getTime()));
 };
 
 module.exports.removeByCode = function(code, cb) {
